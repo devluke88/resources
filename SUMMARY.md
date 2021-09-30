@@ -9,6 +9,7 @@
 * [Branching and Merging](git/branching-and-merging.md)
 * [Reverting Changes](git/reverting-changes.md)
 * [Rebasing](git/rebasing.md)
+* [External Links](git/external-links.md)
 
 ## Linux
 

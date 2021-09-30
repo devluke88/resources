@@ -13,6 +13,7 @@
 | 9 | `git log` | It shows the list of commits. |
 | 10 | `git log --oneline` | It shows the history of the commit in one line. |
 | 11 | `git log -p` | It shows the list of commits with diff. |
+| 12 | `git diff` | This will compare the working tree to the index and show you the difference. |
 
 
 
