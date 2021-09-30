@@ -8,6 +8,7 @@
 * [Git Basics](git/git-basics.md)
 * [Branching and Merging](git/branching-and-merging.md)
 * [Reverting Changes](git/reverting-changes.md)
+* [Rebasing](git/rebasing.md)
 
 ## Linux
 
