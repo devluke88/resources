@@ -15,6 +15,7 @@
 
 * [Basic Commands](linux/basic-commands.md)
 * [Bash and Scripting](linux/bash-and-scripting.md)
+* [External Links](linux/external-links.md)
 
 ## HTML & CSS
 
