@@ -13,14 +13,14 @@ CREATE DATABASE tutorial;
 mysql -u root -p 
 # Enter Password: **********
 
-# or login as
+# You can also login
 sudo mysql
 ```
 
 ### Backup Database
 
 ```
-# Login to database and
+# Login to database
 sudo mysql
 
 # Create a new database
@@ -50,6 +50,18 @@ INSERT INTO service (id, name)
 (2, 'silos'),
 (3, 'rectan')
 (4, 'belkar');
+```
+
+### Deleting Data
+
+```
+DELETE FROM services WHERE id = 3;
+```
+
+### Updating Data
+
+```
+UPDATE services SET name = 'meteor' WHERE id = 1;
 ```
 
 ### Example Query
