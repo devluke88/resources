@@ -1,5 +1,57 @@
 # Basics
 
+### Create Database
+
+```
+CREATE DATABASE tutorial;
+```
+
+### Access Database
+
+```
+# Login to database (-u username, -p authenticate with password)
+mysql -u root -p 
+# Enter Password: **********
+
+# or login as
+sudo mysql
+```
+
+### Backup Database
+
+```
+# Login to database and
+sudo mysql
+
+# Create a new database
+mysql > CREATE DATABASE tutorial_backup;
+
+# Exit mysql with exit command and export table tutorial into a file
+mysqldump -u root -p tutorial > tutorial.sql
+# Enter Password: **********
+
+# Import the tutorial table into a backup table, for example tutorial_backup
+mysql -u root -p tutorial_backup < tutorial.sql
+# Enter Password: **********
+```
+
+### Create Table
+
+```
+CREATE TABLE service (id INTEGER PRIMARY KEY, name TEXT);
+```
+
+### Insert Data Into Table
+
+```
+INSERT INTO service (id, name) 
+  VALUES
+(1, 'metor'),
+(2, 'silos'),
+(3, 'rectan')
+(4, 'belkar');
+```
+
 ### Example Query
 
 ```
@@ -44,7 +96,7 @@ FULL OUTER JOIN table2
 ON table1.name = table2.name;
 ```
 
-####  LEFT OUTER JOIN
+#### &#x20;LEFT OUTER JOIN
 
 Produces a set of records from table1 + matching records in table2 (full table 1 + common part with table 2, null values if there is no record in table 2).
 
