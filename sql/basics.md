@@ -64,6 +64,18 @@ DELETE FROM services WHERE id = 3;
 UPDATE services SET name = 'meteor' WHERE id = 1;
 ```
 
+### Add Extra Column
+
+```
+ALTER TABLE table_name ADD column_name datatype;
+
+# example 1
+ALTER TABLE services ADD service_sla_date DATETIME;
+
+#  example 2
+ALTER TABLE services ADD service_type VARCHAR(255);
+```
+
 ### Example Query
 
 ```
