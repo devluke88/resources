@@ -13,14 +13,16 @@
 | 5 | `docker run [image_from_hub]`                  | This command will run local image, if note found it will pull it from DockerHub, e.g. `docker run node`                                                          |
 | 6 | `docker ps -a`                                 | Show all processes (ps)                                                                                                                                          |
 | 7 | `docker run -it node`                          | Access interactive section of Node instance, where you can run basic commands, node api, etc.                                                                    |
-|   |                                                |                                                                                                                                                                  |
 
 ## Containers
 
-| # | Commmand                              | Description                                                                                                                                                               |
-| - | ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 1 | `docker run -p 8000:80 -d [image_id]` | Run container in the detached mode, this doesn't block your terminal so you can run different commands, but you can't see the output.                                     |
-| 2 | `docker attach [image_name]`          | You can switch on the attach mode, which will show you the p=output in the console, so you can see printed statments, etc. Example use: `docker attach determined_swartz` |
-| 3 | `docker logs [image_name]`            | See the container's logs (you can see past logs), but stay in detached mode.                                                                                              |
-| 4 | `docker logs -f [image_name]`         | See the logs and activate the attach mode (now you will be able to see the future logs).                                                                                  |
-| 5 | `docker start -a [image_name]`        | Start container in the attach mode (you can see output). Example use: `docker start -a determined_swartz`                                                                 |
+| # | Commmand                                                         | Description                                                                                                                                                               |
+| - | ---------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 1 | `docker run -p 8000:80 -d [image_id]`                            | Run container in the detached mode, this doesn't block your terminal so you can run different commands, but you can't see the output.                                     |
+| 2 | `docker attach [image_name]`                                     | You can switch on the attach mode, which will show you the p=output in the console, so you can see printed statments, etc. Example use: `docker attach determined_swartz` |
+| 3 | `docker logs [image_name]`                                       | See the container's logs (you can see past logs), but stay in detached mode.                                                                                              |
+| 4 | `docker logs -f [image_name]`                                    | See the logs and activate the attach mode (now you will be able to see the future logs).                                                                                  |
+| 5 | `docker start -a [image_name]`                                   | Start container in the attach mode (you can see output). Example use: `docker start -a determined_swartz`                                                                 |
+| 6 | `docker run -i -t [image_id]` or use `docker run -it [image_id]` | Run container in interactive mode which allows STDIN, you can provide input to the terminal window.                                                                       |
+| 7 | `docker start -a -i [image_name]`                                | Start the container in attach mode and with option allowing to input data in terminal (I want to input something mode).                                                   |
+
