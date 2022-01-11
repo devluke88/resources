@@ -13,7 +13,7 @@
   <body>
     <h1>About Page</h1>
     <a href="about.html">About</a>
-    a href="https://www.rectan.pl/about">Click Me</a>
+    <a href="https://www.rectan.pl/about">Click Me</a>
     <img src="images/test.jpg">
   </body>
 </html>

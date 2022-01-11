@@ -33,6 +33,10 @@
 
 * [Basics](docker/basics.md)
 
+***
+
+* [Poetry](poetry.md)
+
 ## AWS and Terraform
 
 * [Basics](aws-and-terraform/basics.md)
