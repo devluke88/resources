@@ -33,7 +33,7 @@ poetry init
 cd poetry-demo
 
 # now you can add dependency, for example:
-poetry alembic
+poetry add alembic
 
 #this will add dependency in pyproject.toml file
 
