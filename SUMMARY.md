@@ -24,6 +24,7 @@
 ## JavaScript
 
 * [Basics](javascript/basics.md)
+* [Extra Material](javascript/extra-material.md)
 
 ## SQL
 
