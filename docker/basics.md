@@ -48,16 +48,22 @@
 | 10 | `docker logout`                                      | Logout from Docker Hub                                                                                                                                                                                                                  |
 | 11 | `docker push [repo_name]`                            | Push image to your repo in Docker Hub, for example: `docker push rectan/hello-world`                                                                                                                                                    |
 | 12 | `docker pull [image_name]`                           | Pull images from Docker Hub (this will detch the latest image), for example: `docker pull rectan/hello-world`                                                                                                                           |
+| 13 | `docker history [image_name]`                        | This command shows the history of the image, what was done step by step and might expose some env variables. Example usage: `docker history feedback-node:latest`                                                                       |
 
-## Volumes
+## Volumes and Bind Mounts
 
-| # | Command                                                                                                                                                                                  | Description                                                                                                                                                                                                                                                                                                                                                                           |
-| - | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 1 | `docker volume rm VOL_NAME`                                                                                                                                                              | Remove a given volume.                                                                                                                                                                                                                                                                                                                                                                |
-| 2 | `docker volume prune`                                                                                                                                                                    | Remove all unused local volumes                                                                                                                                                                                                                                                                                                                                                       |
-| 3 | `docker run -d -p 3000:80 --rm --name feedback-app -v feedback:/app/feedback feedback-node:volumes`                                                                                      | Run container in `-d` (detached mode), with `-p` on port 3000, `--rm` (remove container once stopped), `--name` (name it `feedback-app`) and attach the volume `/app/feedback`  that should be mapped to `feedback` with `-v` flag, lastly create it from tag (`feedback-node:volumes`). This command allow you to persist the data, even after container was removed and re-created. |
-| 4 | `docker run -d -p 3000:80 --rm --name feedback-app -v feedback:/app/feedback -v "/Users/andrew/training/data-volumes-01-starting-setup:/app" feedback-node:volumes`                      | Use bind mounts to map local folder on your machine to container app. In this way you can update code on your machine without re-creating the existing container. (shortcut for the full path: `-v $(pwd):/app`)                                                                                                                                                                      |
-| 5 | `docker run -d -p 3000:80 --rm --name feedback-app -v feedback:/app/feedback -v "/Users/andrew/training/data-volumes-01-starting-setup:/app" -v /app/node_modules feedback-node:volumes` | Add anonymous volume `-v /app/node_modules` to container to make sure the the node module folder doesn't get overwritten by our bind mounts folder content.                                                                                                                                                                                                                           |
+| #  | Command                                                                                                                                                                                                  | Description                                                                                                                                                                                                                                                                                                                                                                           |
+| -- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 1  | `docker volume rm VOL_NAME`                                                                                                                                                                              | Remove a given volume, for example: `docker volume rm feedback`                                                                                                                                                                                                                                                                                                                       |
+| 2  | `docker volume prune`                                                                                                                                                                                    | Remove all unused local volumes                                                                                                                                                                                                                                                                                                                                                       |
+| 3  | `docker run -d -p 3000:80 --rm --name feedback-app -v feedback:/app/feedback feedback-node:volumes`                                                                                                      | Run container in `-d` (detached mode), with `-p` on port 3000, `--rm` (remove container once stopped), `--name` (name it `feedback-app`) and attach the volume `/app/feedback`  that should be mapped to `feedback` with `-v` flag, lastly create it from tag (`feedback-node:volumes`). This command allow you to persist the data, even after container was removed and re-created. |
+| 4  | `docker run -d -p 3000:80 --rm --name feedback-app -v feedback:/app/feedback -v "/Users/andrew/training/data-volumes-01-starting-setup:/app" feedback-node:volumes`                                      | Use bind mounts to map local folder on your machine to container app. In this way you can update code on your machine without re-creating the existing container. (shortcut for the full path: `-v $(pwd):/app`)                                                                                                                                                                      |
+| 5  | `docker run -d -p 3000:80 --rm --name feedback-app -v feedback:/app/feedback -v "/Users/andrew/training/data-volumes-01-starting-setup:/app" -v /app/node_modules feedback-node:volumes`                 | Add anonymous volume `-v /app/node_modules` to container to make sure the the node module folder doesn't get overwritten by our bind mounts folder content.                                                                                                                                                                                                                           |
+| 6  | `docker run -v /app/data ...`                                                                                                                                                                            | Creates annonymous volume that is attached to single container, survives container shutdown/restart, unless `--rm` flag is used. Cannot be shared across containers and be re-used. Volume can be added to the Dockerfile.                                                                                                                                                            |
+| 7  | `docker run -v data:/app/data ...`                                                                                                                                                                       | Creates named volume - cannot be added to the Dockerfile. Created in general - not tied to any specific container. Thanks to that it survices shutdown/restart - removal via Docker CLI. Can be shared accross containers and re-used for same container (across restarts).                                                                                                           |
+| 8  | `docker run -v /path/to/code/:app/code ...`                                                                                                                                                              | Creates Bind Mount. Location on host file system, not tied to any specific container. It survices container shutdown/restart - removal on host fs. Can be shared across containers and re-used for same container (across restarts).                                                                                                                                                  |
+| 9  | `docker run -d -p 3000:80 --rm --name feedback-app -v feedback:/app/feedback -v "/Users/andrew/training/data-volumes-01-starting-setup:/app:ro" -v /app/node_modules -v /app/temp feedback-node:volumes` | Adding `:ro` at the end of container  internal path - which overwrites default which is read-write to read-only. This ensures that docker will not be able to write into our folder or subfolders (only user on its host machine can do).                                                                                                                                             |
+| 10 | `docker volume inspect [volume_name]`                                                                                                                                                                    | Check extra info about the volume, examle usage: `docker volume inspect feedback`                                                                                                                                                                                                                                                                                                     |
 
 ### Example Dockerfile using Volumes
 
@@ -77,4 +83,48 @@ EXPOSE 80
 VOLUME [ "/app/feedback" ]
 
 CMD [ "node", "server.js" ] 
+```
+
+## ARG and ENV Variables
+
+* **ARG** - available inside of the `Dockerfile`, not accessible in CMD or any application code, example usage: `docker build --build-arg`
+* **ENV** - available inside of the `Dockerfile` and in application code, set via `Dockerfile` or `--env` or `-e`on `docker run` command, for example:
+
+```
+# using --env flag
+docker run -d -p 3000:8000 --env PORT=8000 --rm --name feedback-app -v feedback:/app/feedback -v "/Users/andrew/training/data-volumes-01-starting-setup:/app:ro" -v /app/node_modules -v /app/temp feedback-node:env
+
+# we can also have .env file inside our folder structure and run env with --env-file:
+docker run -d -p 3000:8000 --env-file ./.env  --rm --name feedback-app -v feedback:/app/feedback -v "/Users/andrew/training/data-volumes-01-starting-setup:/app:ro" -v /app/node_modules -v /app/temp feedback-node:env
+
+```
+
+### Example Dockerfile using ARG
+
+```
+FROM node
+
+WORKDIR /app
+
+COPY package.json .
+
+RUN npm install
+
+COPY . .
+
+ARG DEFAULT_PORT=80
+
+ENV PORT $DEFAULT_PORT
+
+EXPOSE $PORT
+
+# VOLUME [ "/app/node_modules" ]
+
+CMD [ "npm", "start" ] 
+```
+
+### Using ARG Command example
+
+```
+docker build -t feedback-node:dev --build-arg DEFAULT_PORT=8000 .
 ```
