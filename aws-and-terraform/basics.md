@@ -12,4 +12,9 @@ terraform force-unlock LOCK_ID
 bundle exec terraspace force-unlock <stackName> <Id>    
 ```
 
+```
+# unintall gem
+gem uninstall terraspace -v 1.0.2
+```
+
 ##
