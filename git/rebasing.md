@@ -12,16 +12,20 @@ Rebasing means changing the old base of the branch to a new one built on the top
 ## Example
 
 ```
-// Start rebase, to add changes from development branch (make sure to pull it first and back-up your feature branch):
+// Start rebase, to add changes from the development branch (make sure to pull it first and back-up your feature branch):
 
 git rebase development
 
-# if there are any conflicts - fix it and save file, next add your changes with:
+# if there are any conflicts - fix them and save the file, next add your changes with:
 git add .
 
 # continue rebase
 git rebase --continue
 
-# after successful rebase push your changes with force
+# after successful rebase push your changes with force, two options here:
+# 1. Force with lease - recommended option - this prevents overwriting commits somene has pushed up in the meanitme
+git push --force-with-lease
+
+# 2. Just force
 git push --force
 ```
