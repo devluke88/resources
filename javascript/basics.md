@@ -91,3 +91,33 @@ function multiply(n1, n2) {
     
   </script>
 ```
+
+## Arrow function
+
+```
+// Example 1
+let func = (arg1, arg2, ..., argN) => expression;
+
+let func = function(arg1, arg2, ..., argN) {
+  return expression;
+};
+
+# Example 2
+let sum = (a, b) => a + b;
+
+# Example 3
+let sayHi = () => alert("Hello!");
+
+sayHi();
+
+# Example 4 
+let age = prompt("What is your age?", 18);
+
+let welcome = (age < 18) ?
+  () => alert('Hello') :
+  () => alert("Greetings!");
+
+welcome();
+
+# Source: https://javascript.info/arrow-functions-basics
+```
