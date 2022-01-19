@@ -68,4 +68,26 @@ switch (true) {
 function multiply(n1, n2) {
   return n1 * n2;
 }
+
+# Examples
+<script>
+    
+      function add7(n) {
+        return n + 7;
+      }
+
+      function multiply(n1, n2) {
+        return parseInt(n1) * parseInt(n2);
+      }
+
+      function capitalize(string) {
+        let result = string.toLowerCase();
+        return result.charAt(0).toUpperCase() + result.slice(1);
+      }
+
+      function lastLetter(string) {
+        return string.slice(-1);
+      }
+    
+  </script>
 ```
