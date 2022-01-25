@@ -34,6 +34,7 @@
 ## Docker
 
 * [Basics](docker/basics.md)
+* [Notes](docker/notes.md)
 
 ***
 
