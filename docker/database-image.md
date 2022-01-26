@@ -43,4 +43,6 @@ docker network ls
 
 // Run the container with network option
 docker run -d --name mongodb --network network-name mongo
+
+//Requests to local machine use: host.docker.internal
 ```
