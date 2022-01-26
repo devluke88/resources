@@ -14,7 +14,7 @@ Port: 3306
 Username: root
 ```
 
-## Mongo DB
+## Mongo DB with network option
 
 ```
 // Get the mongo from docker hub
@@ -26,5 +26,21 @@ docker run -d --name mongodb mongo
 // Get info about the container in a dictionary form - you can get IP address for example
 docker container inspect mongodb
 
+// Create container network (IP are automatically resolved)
+docker run --network my_network ...
 
+// Stop container 
+docker stop mongodb
+
+// Remove all stopped containers
+docker container prune
+
+// Create a docker network
+docker network create network-name
+
+// Inspect all existing networks
+docker network ls
+
+// Run the container with network option
+docker run -d --name mongodb --network network-name mongo
 ```
