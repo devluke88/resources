@@ -121,3 +121,35 @@ welcome();
 
 # Source: https://javascript.info/arrow-functions-basics
 ```
+
+## Loops
+
+```
+// for...of
+for (const item of array) {
+  // code to run
+}
+
+// for
+for (initializer; condition; final-expression) {
+  // code to run
+}
+
+// while
+initializer
+while (condition) {
+  // code to run
+
+  final-expression
+}
+
+// do...while
+initializer
+do {
+  // code to run
+
+  final-expression
+} while (condition)
+
+Source: https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Looping_code#which_loop_type_should_you_use
+```
