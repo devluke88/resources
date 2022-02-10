@@ -72,3 +72,76 @@
   </body>
 </html>
 ```
+
+Example 2
+
+```
+// https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Test_your_skills:_Loops
+
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title>Loops: Task 2</title>
+    <style>
+      p {
+        color: purple;
+        margin: 0.5em 0;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+    </style>
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+
+  <body>
+
+    <section class="preview">
+
+
+
+    </section>
+
+  </body>
+  <script>
+    const name = 'Francesca';
+    const para = document.createElement('p');
+
+    const phonebook = [
+      { name : 'Chris', number : '1549' },
+      { name : 'Li Kang', number : '9634' },
+      { name : 'Anne', number : '9065' },
+      { name : 'Francesca', number : '3001' },
+      { name : 'Mustafa', number : '6888' },
+      { name : 'Tina', number : '4312' },
+      { name : 'Bert', number : '7780' },
+      { name : 'Jada', number : '2282' },
+    ]
+
+    // Add your code here
+    function search_number(name, para, phonebook) {
+    	for (let i = 0; i < phonebook.length; i++) {
+      	if (phonebook[i]["name"] === name) {
+          const record = `Record found ${name}: ${phonebook[i]["number"]}.`;
+          console.log(record);
+         	return record;
+        }
+        else {
+          console.log("Still searching");
+          continue;
+        }
+        console.log(`Record for ${name} not found!`);
+      }
+      
+		}
+    para.textContent = search_number(name, para, phonebook);
+    // Don't edit the code below here!
+    const section = document.querySelector('section');
+    section.appendChild(para);
+  </script>
+
+</html>
+
+
+```
