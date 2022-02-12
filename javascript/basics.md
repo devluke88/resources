@@ -153,3 +153,32 @@ do {
 
 Source: https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Looping_code#which_loop_type_should_you_use
 ```
+
+### While Loop
+
+```
+let i = 10;
+while (i > 0) {
+    console.log(i);
+    i--;
+}
+```
+
+### Do..While Loop
+
+```
+let i = 0;
+do {
+    console.log(i);
+    i++;
+}
+while (i < 3)
+```
+
+### For Loop
+
+```
+for (let i = 0; i < 3; i++) {
+    console.log(i);
+}
+```
