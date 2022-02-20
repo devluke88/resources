@@ -25,6 +25,7 @@
 
 * [Basics](javascript/basics.md)
 * [Example Snippets](javascript/example-snippets.md)
+* [DOM](javascript/dom.md)
 * [Extra Material](javascript/extra-material.md)
 
 ## SQL
