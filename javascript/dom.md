@@ -84,7 +84,7 @@ div.classList.toggle('active');
 // it does, then remove it
 ```
 
-Text and HTML content
+**Text and HTML content**
 
 ```
 div.textContent = 'Hello World!'                               
@@ -93,4 +93,27 @@ div.textContent = 'Hello World!'
 
 div.innerHTML = '<span>Hello World!</span>';                   
 // renders the HTML inside div
+```
+
+**Attaching listeners to groups of nodes**
+
+```
+<div id="container">
+    <button id="1">Click Me</button>
+    <button id="2">Click Me</button>
+    <button id="3">Click Me</button>
+</div>
+
+// buttons is a node list. It looks and acts much like an array.
+const buttons = document.querySelectorAll('button');
+
+// we use the .forEach method to iterate through each button
+buttons.forEach((button) => {
+
+  // and for each one we add a 'click' listener
+  button.addEventListener('click', () => {
+    alert(button.id);
+  });
+});
+Source: https://www.theodinproject.com/paths/foundations/courses/foundations/lessons/dom-manipulation-and-events#events
 ```

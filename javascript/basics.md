@@ -120,6 +120,26 @@ let welcome = (age < 18) ?
 welcome();
 
 # Source: https://javascript.info/arrow-functions-basics
+
+// method 1
+<button onclick="alert('Hello World')">Click Me</button>
+
+// method 2
+<!-- the HTML file -->
+<button id="btn">Click Me</button>
+// the JavaScript file
+const btn = document.querySelector('#btn');
+btn.onclick = () => alert("Hello World");
+
+// method 3
+<!-- the HTML file -->
+<button id="btn">Click Me Too</button>
+// the JavaScript file
+const btn = document.querySelector('#btn');
+btn.addEventListener('click', () => {
+  alert("Hello World");
+});
+Source: https://www.theodinproject.com/paths/foundations/courses/foundations/lessons/dom-manipulation-and-events#events
 ```
 
 ## Loops
