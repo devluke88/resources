@@ -209,3 +209,26 @@ Example 3
 
 </html>
 ```
+
+```
+// Objects
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript
+
+function makePerson(first, last) {
+  return {
+    first: first,
+    last: last,
+    fullName: function() {
+      return this.first + ' ' + this.last;
+    },
+    fullNameReversed: function() {
+      return this.last + ', ' + this.first;
+    }
+  };
+}
+
+const s = makePerson('Simon', 'Willison');
+s.fullName(); // "Simon Willison"
+s.fullNameReversed(); // "Willison, Simon"
+
+```
