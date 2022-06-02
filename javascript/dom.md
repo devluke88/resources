@@ -272,12 +272,44 @@ for (car i = 0; i < odd.length; i++) {
     odd[i].style.backgroundColor = '#f4f4f4';
     even[i].style.backgroundColor = '#ccc';
 }
+
 ```
 
 ### Part 2
 
-#### 1.&#x20;
+#### 1. Traversing the DOM
 
 ```
-// Some code
+var itemList = document.querySelector('#items'); // <ul id="items" class="list-group">…</ul>flex
+
+// parentNode property
+itemList.parentNode; // Returns parent element: <div id="main" class="card card-body">…<ul>..<ul></div>flex
+itemList.parentNode.style.backgroundColor = '#f4f4f4'; // This will change the parent node
+itemList.parentNode.parenNode; // This will give us the parent node of the parent node of the ul, we can move up in hierarchy like that
+
+// parentElement property - can be used intechangeable with parentNode
+itemList.parentElement; // Returns parent element: <div id="main" class="card card-body">…<ul>..<ul></div>flex
+itemList.parentElement.style.backgroundColor = '#f4f4f4'; // This will change the parent node
+itemList.parentElement.parentElement; // This will give us the parent element of the parent node of the ul, we can move up in hierarchy like that
+
+// childNodes property - includes also text node (whitespace, line brakes etc.)
+itemList.childNodes; // This will return NodeList(9) [text, li.list-group-item,...]
+
+// children property - does not include white space text etc., only actual elements
+itemList.children; returns HTMLCollection(4) [li.list-group-item, ...]
+itemList.children[1]; // get second element from the collection
+itemList.children[1].style.backgroundColor = 'yellow'; // change background-color property on the second element
+
+// firstChild property
+itemList.firstChild; // returns first item but it might be text (whitespace), like with childNodes property
+
+// firstElementChild property
+itemList.firstElementChild; // Returns first child: <li class="list-group-item">…</li>
+
+// lastChild
+itemList.lastChild
+
+// lastElementChild
+itemList.lastElementChild.textContent = 'Hello';
+
 ```
