@@ -360,5 +360,34 @@ container.insertBefore(newDiv, h1); //
 #### 1. Events
 
 ```
-// Some code
+var button = document.getElementbyId('button');
+button.addEventListener('click', function () {
+    // some function code
+    console.log('Test');
+});
+
+// Use named function
+button.addEventListener('click', buttonClicked);
+
+// named function
+function buttonClicked () {
+    document.getElementById('header-title').textContent = 'Hello';
+    document.querySelector('#main').style.backgroundColor = '#f4f4f4';
+};
+
+// named function with event passed as parameter
+function buttonClicked(e) {
+    e.target; // Returns element that was clicked
+    e.target.id; // Returns id of the element
+    e.target.className;
+    e.target.classList; // Returns DomTokenList array, so list of all classes
+    var output = document.getElementById('output');
+    output.innerHTML = `<h3>${e.target.id}</h3>`;
+    e.type; // returns type of the event, e.g. click, input, submit etc.
+    e.clientX; // returns position of the mouse on the X axis from the browser window
+    e.clientY; // returns position of the mouse on the Y axis from the browser window
+}
+
+
+
 ```
