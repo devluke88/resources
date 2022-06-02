@@ -306,10 +306,59 @@ itemList.firstChild; // returns first item but it might be text (whitespace), li
 // firstElementChild property
 itemList.firstElementChild; // Returns first child: <li class="list-group-item">…</li>
 
-// lastChild
+// lastChild property
 itemList.lastChild
 
-// lastElementChild
+// lastElementChild property
 itemList.lastElementChild.textContent = 'Hello';
 
+// nextSibling property
+itemList.nextSibling;
+
+// nextElementSibling property
+itemList.nextElementSibling;
+
+// previousSibling property
+itemList.previousSibling;
+
+// previousElementSibling property
+itemList.previousElementSibling;
+
+```
+
+#### 2. Create Element
+
+```
+// Create a div
+var newDiv = document.createElement('div');
+
+// Add class
+newDiv.className = 'hello'; // <div class="hello"></div>
+
+// Add ID
+newDiv.id = 'hello1'; // <div class="hello" id="hello1"></div>
+
+// Add attribute
+newDiv.setAtrribute('title', 'Hello Div'); // <div class="hello" id="hello1" title="Hello Div"></div>
+
+// Create text node
+var newDivText = document.createTextNode('Hello World');
+
+// Add text to div
+newDiv.appendChild(newDivText); // <div class="hello" id="hello1" title="Hello Div">Hello World</div>
+
+// Add created element to the DOM, get the hedaer container first
+var container = document.querySelector('header .container');
+var h1 = document.querySelector('header h1');
+// Insert new element (newDiv) to container before h1
+container.insertBefore(newDiv, h1); // 
+
+```
+
+### Part 3
+
+#### 1. Events
+
+```
+// Some code
 ```
