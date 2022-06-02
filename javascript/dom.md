@@ -357,7 +357,7 @@ container.insertBefore(newDiv, h1); //
 
 ### Part 3
 
-#### 1. Events
+#### Events
 
 ```
 var button = document.getElementbyId('button');
@@ -375,8 +375,9 @@ function buttonClicked () {
     document.querySelector('#main').style.backgroundColor = '#f4f4f4';
 };
 
-// named function with event passed as parameter
+// named function with Event passed as parameter
 function buttonClicked(e) {
+    // Event objects
     e.target; // Returns element that was clicked
     e.target.id; // Returns id of the element
     e.target.className;
@@ -386,8 +387,56 @@ function buttonClicked(e) {
     e.type; // returns type of the event, e.g. click, input, submit etc.
     e.clientX; // returns position of the mouse on the X axis from the browser window
     e.clientY; // returns position of the mouse on the Y axis from the browser window
+    e.offsetX; // returns position of the mouse on the X axis from the actual element itself
+    e.offsetY; // returns position of the mouse on the Y axis from the actual element itself
+    e.altKey; // returns true (or false if not) if alt was pressed when event happened
+    e.ctrlKey; // true/false
+    e.shiftKey; // true/false
 }
 
+// Type of events
+// Mouse Events
+var button = document.getElementbyId('button');
+button.addEventListener('dbclick', runEvent); // event fires on double click
+button.addEventListener('mousedown', runEvent); // event if fired when mouse is clicked and hold
+button.addEventListener('mouseup', runEvent); // event fires off when mouse is release
+button.addEventListener('mouseenter', runEvent); // event fires off when you enter element
+button.addEventListener('mouseleave', runEvent); // event fires off when you leave element
+button.addEventListener('mouseover', runEvent); // event fires off when you enter child of the element
+button.addEventListener('mouseout', runEvent); // event fires off when you leave child of the element
+button.addEventListener('mousemove', runEvent); // grab the position of the mouse
 
+// Keyboard Events
+var itemInput = document.querySelector('input[type="text"]');
+var form = document.querySelector('form');
+form.addEventListener('keydown', runEvent);
+form.addEventListener('keyup', runEvent);
+form.addEventListener('keypress', runEvent);
 
+// Text Events
+itemInput.addEventListener('focus', runEvent); // when you select input field, it's active
+itemInput.addEventListener('blur', runEvent); // when you leave field
+itemInput.addEventListener('cut', runEvent); // fired when you cut the text
+itemInput.addEventListener('paste', runEvent); // fired when you paste
+itemInput.addEventListener('input', runEvent); // fired when you do anything with the input
+var select = document.querySelector('select'); // We pretend that this element is dropdown list select
+select.addEventListener('change', runEvent); // Event is fired on change, e.g. we select different value from select dropdown
+form.addEventListener('submit', runEvent); // fired when you clicked submit for your form
+
+function runEvent(e) {
+    e.preventDefault(); // prevent the default behaviour of the clicked element, e.g. form submission
+    e.type; // returns event type, e.g 'keydown'
+    output = `<h3>MouseX: ${e.offsetX}</h3><h3>MouseY: ${e.offsetY}</h3>`;
+    document.body.style.backgroundColor = `rgb(${e.offsetX},${e.offsetY},40)`; // this will change the background color based on the mouse move position
+    e.target.value; // if you use 'keydown' as event trigger on the form, you can captured what was typed in the input 
+}
+
+```
+
+### Part 4
+
+#### Real Example
+
+```
+// Some code
 ```
