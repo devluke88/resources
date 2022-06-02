@@ -117,3 +117,88 @@ buttons.forEach((button) => {
 });
 Source: https://www.theodinproject.com/paths/foundations/courses/foundations/lessons/dom-manipulation-and-events#events
 ```
+
+### Dom - Notes
+
+Notes made from JavaScript DOM Crash Course - Traversy Media, source:\
+[https://youtu.be/0ik6X4DJKCc](https://youtu.be/0ik6X4DJKCc)
+
+#### Starter Template
+
+```
+<!doctype html>
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+        
+        <title>Item Lister</title>
+    </head>
+    <body>
+        <header id="main-header" class="bg-success text-white p-4 mb-3">
+            <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h1 id="header-title">Item Lister</h1>
+                </div>
+                <div class="col-md-6 align-self-center">
+                    <input type="text" class="form-control" id="filter" placeholder="Search Items...">
+                </div>
+            </div>
+            </div>
+        </header>
+        <div class="container">
+            <div id="main" class="card card-body">
+                <h2 class="title">Add Items</h2>
+                <form id="addForm" class="form-inline mb-3">
+                    <input type="text" class="form-control mr-2" id="item">
+                    <input type="submit" class="btn btn-dark" value="Submit">
+                </form>
+                <h2 class="title">Items</h2>
+                <ul id="items" class="list-group">
+                    <li class="list-group-item">Item 1 <button class="btn btn-danger btn-sm float-right delete">X</button></li>
+                    <li class="list-group-item">Item 2 <button class="btn btn-danger btn-sm float-right delete">X</button></li>
+                    <li class="list-group-item">Item 3 <button class="btn btn-danger btn-sm float-right delete">X</button></li>
+                    <li class="list-group-item">Item 4 <button class="btn btn-danger btn-sm float-right delete">X</button></li>
+                </ul>
+            </div>
+        </div>
+
+    <!-- jQuery and Bootstrap Bundle (includes Popper) -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+    </body>
+    <script src="main.js"></script>
+</html>
+```
+
+### Part 1
+
+```
+// Examine the document object
+console.dir(document); print out all elements - #document
+console.dir(document.domain); // 127.0.0.1
+console.dir(document.URL); // http://127.0.0.1:5500/index.html?
+console.dir(document.title); // Item Lister
+document.doctype; //<!DOCTYPE html>
+document.head; // <head>...</head>
+document.body; // <body>...</body>
+document.all; // HTMLCollection of all things in dom, e.g [html, head, meta, ..., body]
+document.forms; // HTMLCollection of all forms
+document.links; // HTMLCollection of all links
+document.images; // HTMLCollection of all images
+
+// Change element accessing document
+document.title = 123 // 123
+
+// Get element by ID
+var headerTitle = document.getElementById('header-title'); // <h1 id="header-title">Item Lister</h1>
+headerTitle.textContent = 'Hello'; // Change the element text, doesn't care about styling returns 'Hello'
+headerTitle.innerText = 'Goodbye'; // Change the element text, take styling into consideration, returns 'Goodbye'
+headerTitle.innerHTML = '<h3>Hello</h3>'; Put html element inside the selected element, <h1 id="header-title"><h3>Hello</h3></h1>
+
+```
