@@ -178,8 +178,10 @@ Notes made from JavaScript DOM Crash Course - Traversy Media, source:\
 
 ### Part 1
 
+#### 1. Examine the document object
+
 ```
-// Examine the document object
+// 1. EXAMINE THE DOCUMENT OBJECT
 console.dir(document); print out all elements - #document
 console.dir(document.domain); // 127.0.0.1
 console.dir(document.URL); // http://127.0.0.1:5500/index.html?
@@ -195,10 +197,87 @@ document.images; // HTMLCollection of all images
 // Change element accessing document
 document.title = 123 // 123
 
-// Get element by ID
+```
+
+#### 2. Get Element by ID
+
+```
 var headerTitle = document.getElementById('header-title'); // <h1 id="header-title">Item Lister</h1>
+
+// Change element text
 headerTitle.textContent = 'Hello'; // Change the element text, doesn't care about styling returns 'Hello'
 headerTitle.innerText = 'Goodbye'; // Change the element text, take styling into consideration, returns 'Goodbye'
 headerTitle.innerHTML = '<h3>Hello</h3>'; Put html element inside the selected element, <h1 id="header-title"><h3>Hello</h3></h1>
 
+// Change element style
+headerTitle.style.borderBottom = '1px solid blue'; // This allows you to choose any CSS property, but you need to use camel case, for example background-color is backgrounColor
+
+```
+
+#### 3. Get Element by Class
+
+```
+var items = document.getElementsByClassName('list-group-item');
+console.log(items); // Returns HTMLCollection, elements with indices, e.g. [li.list-group-item, li.list-group-item, ...]
+items[1].textCOntent = 'Hello 2'; // access second item in HTMLCollection and change the text
+items[1].style.fontWeight = 'bold'; // change style
+items[1].style.backgroundColor = 'yellow'; // change style
+
+// Change the style of all elements in the list
+for (var i = 0; i < items.length; i++) {
+    items[i].style.backgroundColor = 'red';
+}
+
+```
+
+#### 4. Query Selector
+
+```
+var header = document.querySelector('#main-header'); // get the header with id main-header
+header.style.borderBottom = '2px solid green';
+
+// Get the input element
+var input = document.querySelector('input');
+input.value = 'Hello World'; // this will populate the value for selected input
+
+// Get the input by it's type
+var submit = document.querySelector('input[type="submit"]');
+submit.value = "SEND"; // Change the button to SEND
+
+// Get element using class (first li)
+var item = document.querySelector('.list-group-item'); // this will get first element from ul list (first li)
+item.style.color = 'red'; 
+
+// Get last li element from the list
+var lastItem = document.querySelector('.list-group-item:last-child');
+
+// Get nth child li
+var secondItem = document.querySelector('.list-group-item:nth-child(2)'); // Use css sudo selectors
+
+```
+
+#### 5.  Query Selector All
+
+```
+var titles = document.querySelectorAll('.title');
+console.log(titles) // This will return: NodeList(2) [h2.title, h2.title] ; similar to HTMLCollection, but will allow to run array functions
+titles[0].textContent = 'Hello'; // Access the first element from the node list and add text 'Hello'
+
+// Use odd elements
+var odd = document.querySelectorAll('li:nth-child(odd)');
+var even = document.querySelectorAll('li:nth-child(even)');
+
+// You can now edit all odd and even elements with for loop
+for (car i = 0; i < odd.length; i++) {
+    odd[i].style.backgroundColor = '#f4f4f4';
+    even[i].style.backgroundColor = '#ccc';
+}
+```
+
+### Part 2
+
+#### 1.&#x20;
+
+```
+// Some code
 ```
