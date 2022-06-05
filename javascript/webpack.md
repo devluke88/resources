@@ -37,6 +37,18 @@ module.exports = {
   },
 };
 
+```
+
+#### Compile files
+
+```
 // Compile file, dist/main.js
+npx webpack 
+
+// Compile using a given config file
 npx webpack --config webpack.config.js
+
+// Compile file, and auto-reload index.html page when you make changes
+npx webpack --watch
+
 ```
