@@ -28,6 +28,7 @@
 * [DOM](javascript/dom.md)
 * [Extra Material](javascript/extra-material.md)
 * [Webpack](javascript/webpack.md)
+* [React](javascript/react.md)
 
 ## SQL
 
