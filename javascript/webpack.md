@@ -59,9 +59,6 @@ module.exports = {
     ]
   }
 };
-
-// Install css-loader and style-loader
-npm install --save-dev style-loader css-loader
 ```
 
 #### Compile files
