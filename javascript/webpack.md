@@ -59,6 +59,9 @@ module.exports = {
     ]
   }
 };
+
+// Install css-loader and style-loader
+npm install --save-dev style-loader css-loader
 ```
 
 #### Compile files
@@ -74,3 +77,9 @@ npx webpack --config webpack.config.js
 npx webpack --watch
 
 ```
+
+#### Useful resources
+
+{% embed url="https://webpack.js.org/guides/asset-management/" %}
+Webpack
+{% endembed %}
