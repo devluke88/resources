@@ -27,4 +27,5 @@
 | 23 | `git push origin --delete [tagname]`      | Delete a given tag from remote server. Same as above.                                                                                                                               |
 | 24 | `git checkout v1.3`                       | Checkout to v1.3                                                                                                                                                                    |
 | 25 | `git checkout -b new_branch v1.3`         | Switch to a new branch called `new_branch`                                                                                                                                          |
+| 26 | `git push --delete origin tagname`        | Remove a given tag from remote repo                                                                                                                                                 |
 
