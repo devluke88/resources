@@ -24,6 +24,11 @@ npm test
 # and scripts into the app directory. If you do this, you can't go back.
 npm run eject
 
+# Install npm package, in the example below we install react-router-dom
+npm i react-router-dom
+# It's possible to install specific version, for instance:
+npm i react-router-dom@6.0.1
+
 
 ```
 
