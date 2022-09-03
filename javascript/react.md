@@ -3,7 +3,36 @@
 ### Create React App
 
 ```
-// TODO
+# Step 1 Create boilerplate react app and use npm instead of yarn:
+# Command: npx create-react-app <app_name> --use-npm
+npx create-react-app test-app --use-npm
+
+# Step 2:
+cd test-app
+
+#Step 3 - available commands:
+# Start the development server.
+npm start
+
+# Bundles the app into static files for production.
+npm run build
+
+# Starts the test runner.
+npm test
+
+# Removes this tool and copies build dependencies, configuration files
+# and scripts into the app directory. If you do this, you can't go back.
+npm run eject
+
+# Install npm package, in the example below we install react-router-dom
+npm i react-router-dom
+# It's possible to install specific version, for instance:
+npm i react-router-dom@6.0.1
+# Install with react-icons
+np i react-router-dom react-icons
+
+
+
 ```
 
 ### Build

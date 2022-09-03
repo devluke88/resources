@@ -4,10 +4,6 @@
 
 ## Map
 
-```
-// Some code
-```
-
 ## Filter
 
 ## Reduce
