@@ -29,9 +29,7 @@ npm i react-router-dom
 # It's possible to install specific version, for instance:
 npm i react-router-dom@6.0.1
 # Install with react-icons
-np i react-router-dom react-icons
-
-
+npm i react-router-dom react-icons
 
 ```
 
@@ -51,6 +49,42 @@ sudo npm i -g serve
 serve -s build -p 8000
 
 // As a result you will get the server address:
-// - Local:            http://localhost:8000      │
+// - Local:            http://localhost:8000      │            
 // - On Your Network:  http://192.168.0.22:8000
+```
+
+### Events
+
+```
+// This snippet shows how to handle events with simple form
+
+import React from 'react'
+import {useState} from 'react'
+
+function Overview() {
+  const [task, setTask] = useState("");
+  const [tasks, setTasks] = useState([])
+
+  const handleSubmit = (event) => {
+    event.preventDefault()
+    setTasks(tasks => [...tasks, task])
+  }
+
+  return (
+    <div>
+      <form onSubmit={handleSubmit}>
+      <label htmlFor="task" >Task: </label>
+        <input id='task' type="text" value={task} onChange={(e) => setTask(e.target.value)}/>
+        <button type="submit" value="Submit">Submit</button>
+      </form>
+        <p>Tasks:</p>
+        <ul>
+          {tasks.map((x, y) => <li key={y}>{x}</li>)}
+        </ul>
+    </div>
+  )
+}
+
+export default Overview
+
 ```
