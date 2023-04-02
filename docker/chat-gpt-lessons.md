@@ -1,4 +1,10 @@
+---
+description: Lessons from ChatGPT about Dockerfile
+---
+
 # Chat GPT lessons
+
+[https://chat.openai.com/chat](https://chat.openai.com/chat)
 
 Sure, I can give you a basic introduction to using Dockerfiles! A Dockerfile is a script that contains instructions for building a Docker image, which is a lightweight, standalone executable package that includes everything needed to run an application, including code, libraries, and system dependencies.
 
