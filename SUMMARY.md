@@ -40,6 +40,7 @@
 
 * [Basics](docker/basics.md)
 * [Database Image](docker/database-image.md)
+* [Chat GPT lessons](docker/chat-gpt-lessons.md)
 
 ***
 
