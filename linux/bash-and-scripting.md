@@ -9,7 +9,7 @@ Use the following to define the interpreter to be used by the shell script (bash
 ```
 
 **Arguments**\
-****variables that are passed to the script. These are also called parameters\
+variables that are passed to the script. These are also called parameters\
 $0 - the name of the script\
 $1 - first parameter from the script\
 $2 - second parameter from the script and so on

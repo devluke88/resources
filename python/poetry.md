@@ -7,7 +7,7 @@ coverY: 0
 ## Install
 
 ```
-// Some code
+pip install poetry
 ```
 
 ## Usage
@@ -50,4 +50,11 @@ source`poetry env info --path`/bin/activate
 installing dependency
 poetry install
 
+```
+
+## Issues
+
+```
+# Resoloving dependencies taking a long time? Use the following:
+poetry cache clear pypi --all
 ```

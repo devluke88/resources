@@ -1,6 +1,10 @@
 # Table of contents
 
 * [Introduction](README.md)
+* [Python](python/README.md)
+  * [Poetry](python/poetry.md)
+  * [SOLID Principles](python/solid-principles.md)
+  * [Design Patterns](python/design-patterns.md)
 
 ## Git
 
@@ -41,10 +45,6 @@
 * [Basics](docker/basics.md)
 * [Database Image](docker/database-image.md)
 * [Chat GPT lessons](docker/chat-gpt-lessons.md)
-
-***
-
-* [Poetry](poetry.md)
 
 ## AWS and Terraform
 
