@@ -2,7 +2,7 @@
 
 * [Introduction](README.md)
 * [Python](python/README.md)
-  * [Poetry](python/poetry.md)
+  * [Poetry](poetry.md)
   * [SOLID Principles](python/solid-principles.md)
   * [Design Patterns](python/design-patterns.md)
 
@@ -49,4 +49,5 @@
 ## AWS and Terraform
 
 * [Basics](aws-and-terraform/basics.md)
+* [DynamoDB](aws-and-terraform/dynamodb.md)
 * [Terraspace](aws-and-terraform/terraspace.md)
