@@ -7,3 +7,6 @@ description: >-
 
 # Introduction
 
+## Useful links
+
+* Text layout and styling [https://typescale.com/](https://typescale.com/)
