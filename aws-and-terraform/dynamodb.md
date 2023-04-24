@@ -49,3 +49,7 @@ def python_obj_to_dynamo_obj(python_obj: dict) -> dict:
         for k, v in python_obj.items()
     }
 ```
+
+#### Useful links
+
+* [https://www.tecracer.com/blog/2021/04/working-with-lists-in-dynamodb.html](https://www.tecracer.com/blog/2021/04/working-with-lists-in-dynamodb.html)
