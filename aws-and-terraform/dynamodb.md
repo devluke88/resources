@@ -31,3 +31,21 @@ volumes:
 docker-compose up -d
 </code></pre>
 
+```
+// Deserialize dynamodb obj -> python and python dict --> dynamodb obj
+// source: https://towardsaws.com/making-use-of-boto3-out-of-the-box-dynamodb-serializers-1dffbc7deafe
+from boto3.dynamodb.types import TypeDeserializer, TypeSerializer
+def dynamo_obj_to_python_obj(dynamo_obj: dict) -> dict:
+    deserializer = TypeDeserializer()
+    return {
+        k: deserializer.deserialize(v) 
+        for k, v in dynamo_obj.items()
+    }  
+  
+def python_obj_to_dynamo_obj(python_obj: dict) -> dict:
+    serializer = TypeSerializer()
+    return {
+        k: serializer.serialize(v)
+        for k, v in python_obj.items()
+    }
+```
