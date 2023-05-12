@@ -51,3 +51,4 @@
 * [Basics](aws-and-terraform/basics.md)
 * [DynamoDB](aws-and-terraform/dynamodb.md)
 * [Terraspace](aws-and-terraform/terraspace.md)
+* [ADR](aws-and-terraform/adr.md)
