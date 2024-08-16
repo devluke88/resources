@@ -5,6 +5,7 @@
   * [Poetry](poetry.md)
   * [SOLID Principles](python/solid-principles.md)
   * [Design Patterns](python/design-patterns.md)
+  * [OOP](python/oop.md)
 
 ## Git
 
@@ -34,6 +35,7 @@
 * [Extra Material](javascript/extra-material.md)
 * [Webpack](javascript/webpack.md)
 * [React](javascript/react.md)
+* [React Cognito](javascript/react-cognito.md)
 
 ## SQL
 
