@@ -57,4 +57,5 @@
 
 ## GOLANG
 
+* [Useful Snippets](golang/useful-snippets.md)
 * [Test](golang/test.md)
