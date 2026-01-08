@@ -60,3 +60,7 @@
 * [Useful Snippets](golang/useful-snippets.md)
 * [Test](golang/test.md)
 * [Data Structures](golang/data-structures.md)
+
+## AI
+
+* [AI Productivity](ai/ai-productivity.md)
